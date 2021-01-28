@@ -4,7 +4,7 @@ public class LeetCodeNo215 {
 
     public static void main(String[] args) {
         int[] inits = {3, 2, 1, 5, 6, 4, 3, 3, 4,0};
-        System.out.println("第K大：" + findKthLargest(inits, 1));
+        System.out.println("第K大：" + findKthLargest(inits, 2));
     }
 
     public static int findKthLargest(int[] arr, int k) {
@@ -16,14 +16,14 @@ public class LeetCodeNo215 {
     }
 
     public static void makeBigHeap(int[] arr, int start, int end) {
-        for (int i = (end - start) / 2 - 1; i >= 0; i--) { //完全二叉树第i个节点的左右子树2i+1 2i+2 从最后一个非叶子节点出发
+        for (int i = (end - start) / 2 ; i >= 0; i--) { //完全二叉树第i个节点的左右子树2i+1 2i+2 从最后一个非叶子节点出发
             adjustHeap(arr, i, end - start);
         }
     }
 
     public static void adjustHeap(int[] arr, int i, int length) {
         int temp = arr[i];
-        for (int k = i * 2 + 1; k < length; k = k * 2 + 1) {//从i结点的左子结点开始，也就是2i+1处开始
+        for (int k = i * 2 + 1; k <= length; k = k * 2 + 1) {//从i结点的左子结点开始，也就是2i+1处开始
             if (k + 1 < length && arr[k] < arr[k + 1]) {//如果左子结点小于右子结点，k指向右子结点
                 k++;
             }
