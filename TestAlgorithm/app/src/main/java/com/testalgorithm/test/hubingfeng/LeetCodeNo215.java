@@ -29,7 +29,7 @@ public class LeetCodeNo215 {
             }
             if (arr[k] > temp) {//如果子节点大于父节点，将子节点值赋给父节点
                 arr[i] = arr[k];
-                i = k; //江需要最后交换的保留为i
+                i = k; //需要最后交换的保留为i
             } else {
                 break;
             }
