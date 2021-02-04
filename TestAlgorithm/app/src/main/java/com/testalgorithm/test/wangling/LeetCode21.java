@@ -1,6 +1,22 @@
 package com.testalgorithm.test.wangling;
 
-import java.util.List;
+/**
+ * Created by tianjin on 2021/1/29
+ *
+ * LeetCode- 21. 合并两个有序链表
+ *
+ * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+ *
+ * 输入：l1 = [1,2,4], l2 = [1,3,4]
+ * 输出：[1,1,2,3,4,4]
+ *
+ * 输入：l1 = [], l2 = []
+ * 输出：[]
+ *
+ * 输入：l1 = [], l2 = [0]
+ * 输出：[0]
+ *
+ */
 
 class LeetCode21 {
 
@@ -18,6 +34,8 @@ class LeetCode21 {
         listNode1.next.val = 3;
         listNode1.next.next = new ListNode();
         listNode1.next.next.val = 4;
+
+
         mergeTwoLists(listNode, listNode1);
 
     }
@@ -80,19 +98,3 @@ class LeetCode21 {
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
