@@ -1,5 +1,8 @@
 package com.testalgorithm.test.wangling;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 给定两个（单向）链表，判定它们是否相交并返回交点。请注意相交的定义基于节点的引用，而不是基于节点的值。
  * 换句话说，如果一个链表的第k个节点与另一个链表的第j个节点是同一节点（引用完全相同），则这两个链表相交。
@@ -32,6 +35,41 @@ package com.testalgorithm.test.wangling;
 class LeetCodeR0207 {
 
     public static void main(String[] args) {
+        ListNode listNode = new ListNode(0);
+        listNode.next = new ListNode(9);
+        listNode.next.next = new ListNode(1);
+        listNode.next.next.next = new ListNode(2);
+        listNode.next.next.next.next = new ListNode(4);
+
+        ListNode listNode1 = new ListNode(3);
+        listNode1.next = new ListNode(2);
+        listNode1.next.next = new ListNode(4);
+
+        ListNode commNode = new ListNode(2);
+        commNode.next = new ListNode(4);
+
+        listNode.next.next.next = commNode;
+        listNode1.next = commNode;
+
+        ListNode result = getIntersectionNode(listNode, listNode1);
+        System.out.println("result:" + result.val);
+    }
+
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Set<ListNode> listNodeSet = new HashSet<ListNode>();
+
+        while(headA != null){
+            listNodeSet.add(headA);
+            headA = headA.next;
+        }
+        while(headB != null){
+            if (listNodeSet.contains(headB)){
+                return headB;
+            }
+            headB= headB.next;
+        }
+        return null;
+
 
     }
 }
