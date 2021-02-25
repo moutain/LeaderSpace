@@ -49,7 +49,6 @@ class LeetCode102 {
         treeNode.left = treeNode1;
 
         List<List<Integer>> listList = levelOrder(treeNode);
-
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
